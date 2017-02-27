@@ -1,5 +1,5 @@
 # RecyclerviewInTab
-Recyclerview in tab layout sample
+Android recyclerview implementation in tab layout sample
 
 <img src="1.png" width="200px" width="1000px" />
 <img src="2.png" width="200px" width="1000px" />
