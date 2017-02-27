@@ -19,10 +19,14 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 
 import com.ejder.app.recyclerviewintab.dummy.DummyContent;
+import com.ejder.app.recyclerviewintab.dummy.DummyItem;
 
 
 public class TabActivity extends AppCompatActivity {
@@ -124,7 +128,8 @@ public class TabActivity extends AppCompatActivity {
         }
 
         private void setupRecyclerView(@NonNull RecyclerView recyclerView, boolean twoPane) {
-            List<DummyContent.DummyItem> items = DummyContent.ITEMS;
+
+            List<DummyItem> items = new ArrayList<DummyItem>(DummyContent.ITEM_MAP.values());
 
             SimpleItemRecyclerViewAdapter adapter = new SimpleItemRecyclerViewAdapter(items, twoPane, mFragmentManager);
             recyclerView.setAdapter(adapter);

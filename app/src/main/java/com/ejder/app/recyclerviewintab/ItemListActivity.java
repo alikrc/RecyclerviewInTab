@@ -11,6 +11,11 @@ import android.view.View;
 
 
 import com.ejder.app.recyclerviewintab.dummy.DummyContent;
+import com.ejder.app.recyclerviewintab.dummy.DummyItem;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
 
 
 /**
@@ -64,6 +69,9 @@ public class ItemListActivity extends AppCompatActivity {
     }
 
     private void setupRecyclerView(@NonNull RecyclerView recyclerView) {
-        recyclerView.setAdapter(new SimpleItemRecyclerViewAdapter(DummyContent.ITEMS, mTwoPane, getSupportFragmentManager()));
+
+        List<DummyItem> items = new ArrayList<DummyItem>(DummyContent.ITEM_MAP.values());
+
+        recyclerView.setAdapter(new SimpleItemRecyclerViewAdapter(items, mTwoPane, getSupportFragmentManager()));
     }
 }

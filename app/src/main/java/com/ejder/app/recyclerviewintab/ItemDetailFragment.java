@@ -11,6 +11,7 @@ import android.widget.TextView;
 
 
 import com.ejder.app.recyclerviewintab.dummy.DummyContent;
+import com.ejder.app.recyclerviewintab.dummy.DummyItem;
 
 /**
  * A fragment representing a single Item detail screen.
@@ -28,7 +29,7 @@ public class ItemDetailFragment extends Fragment {
     /**
      * The dummy content this fragment is presenting.
      */
-    private DummyContent.DummyItem mItem;
+    private DummyItem mItem;
 
     /**
      * Mandatory empty constructor for the fragment manager to instantiate the
@@ -45,7 +46,9 @@ public class ItemDetailFragment extends Fragment {
             // Load the dummy content specified by the fragment
             // arguments. In a real-world scenario, use a Loader
             // to load content from a content provider.
-            mItem = DummyContent.ITEM_MAP.get(getArguments().getString(ARG_ITEM_ID));
+            Bundle args = getArguments();
+            Integer id = getArguments().getInt(ARG_ITEM_ID);
+            mItem = DummyContent.ITEM_MAP.get(id);
 
             Activity activity = this.getActivity();
             CollapsingToolbarLayout appBarLayout = (CollapsingToolbarLayout) activity.findViewById(R.id.toolbar_layout);

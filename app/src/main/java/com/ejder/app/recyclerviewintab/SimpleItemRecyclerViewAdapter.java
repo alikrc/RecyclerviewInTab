@@ -11,8 +11,10 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import java.util.List;
+import java.util.StringTokenizer;
 
 import com.ejder.app.recyclerviewintab.dummy.DummyContent;
+import com.ejder.app.recyclerviewintab.dummy.DummyItem;
 
 /**
  * Created by ejder on 27.02.2017.
@@ -22,11 +24,11 @@ import com.ejder.app.recyclerviewintab.dummy.DummyContent;
 public class SimpleItemRecyclerViewAdapter
         extends RecyclerView.Adapter<SimpleItemRecyclerViewAdapter.ViewHolder> {
 
-    private final List<DummyContent.DummyItem> mValues;
+    private final List<DummyItem> mValues;
     private final boolean mTwoPane;
     private final FragmentManager mFragmentManager;
 
-    public SimpleItemRecyclerViewAdapter(List<DummyContent.DummyItem> items, boolean twoPane, FragmentManager fragmentManager) {
+    public SimpleItemRecyclerViewAdapter(List<DummyItem> items, boolean twoPane, FragmentManager fragmentManager) {
         mValues = items;
         mTwoPane = twoPane;
         mFragmentManager = fragmentManager; //getSupportFragmentManager()
@@ -42,7 +44,7 @@ public class SimpleItemRecyclerViewAdapter
     @Override
     public void onBindViewHolder(final ViewHolder holder, int position) {
         holder.mItem = mValues.get(position);
-        holder.mIdView.setText(mValues.get(position).id);
+        holder.mIdView.setText(String.valueOf(mValues.get(position).id));
         holder.mContentView.setText(mValues.get(position).content);
 
         holder.mView.setOnClickListener(new View.OnClickListener() {
@@ -50,7 +52,7 @@ public class SimpleItemRecyclerViewAdapter
             public void onClick(View v) {
                 if (mTwoPane) {
                     Bundle arguments = new Bundle();
-                    arguments.putString(ItemDetailFragment.ARG_ITEM_ID, holder.mItem.id);
+                    arguments.putInt(ItemDetailFragment.ARG_ITEM_ID, holder.mItem.id);
                     ItemDetailFragment fragment = new ItemDetailFragment();
                     fragment.setArguments(arguments);
 
@@ -80,7 +82,7 @@ public class SimpleItemRecyclerViewAdapter
         public final View mView;
         public final TextView mIdView;
         public final TextView mContentView;
-        public DummyContent.DummyItem mItem;
+        public DummyItem mItem;
 
         public ViewHolder(View view) {
             super(view);
