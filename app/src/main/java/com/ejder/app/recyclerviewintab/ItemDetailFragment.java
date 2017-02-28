@@ -1,24 +1,18 @@
 package com.ejder.app.recyclerviewintab;
 
 import android.app.Activity;
-import android.support.design.widget.CollapsingToolbarLayout;
 import android.os.Bundle;
+import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-
 import com.ejder.app.recyclerviewintab.dummy.DummyContent;
 import com.ejder.app.recyclerviewintab.dummy.DummyItem;
 
-/**
- * A fragment representing a single Item detail screen.
- * This fragment is either contained in a {@link ItemListActivity}
- * in two-pane mode (on tablets) or a {@link ItemDetailActivity}
- * on handsets.
- */
+
 public class ItemDetailFragment extends Fragment {
     /**
      * The fragment argument representing the item ID that this fragment
@@ -56,6 +50,7 @@ public class ItemDetailFragment extends Fragment {
                 appBarLayout.setTitle(mItem.content);
             }
         }
+
     }
 
     @Override
